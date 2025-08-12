@@ -1,0 +1,95 @@
+<html>
+<style>
+    body {
+        background-image: url('backgroundImage.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: "Times New Roman", Times, serif;
+        color: white;
+    }
+
+    .content {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 5rem auto;
+        max-width: 700px;
+        text-align: center;
+    }
+
+    .btn-custom {
+        margin: 0.5rem;
+    }
+    a:link {
+        color: white;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    a:visited {
+        color: white;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    a:hover {
+        color: red;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    a:active {
+        color: purple;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    </style>
+<body>
+
+
+<div class="content text-center mt-5">
+    <h3>Enter information about an item to add to the Student Table:</h3>
+    <form action="addStudent.php" method="post">
+        StudentID: <input type="text" name="studentID"><br>
+        Name: <input type="text" name="name"><br>
+        Do you want AC? (y/n): <input type="text" name="wantAC"><br>
+        Do you want Dining? (y/n): <input type="text" name="wantsDining"><br>
+        Do you want a Kitchen? (y/n): <input type="text" name="wantsKitchen"><br>
+        Do you want a Private Bathroom? (y/n): <input type="text" name="wantsBathroom"><br>
+        <input name="submit" type="submit" >
+    </form>
+
+<br><br>
+
+<br><br>
+</body>
+
+
+<?php
+    if (isset($_POST['submit'])) 
+    {
+        // Student: StudentId, Name, WantsAC, WantsDining, WantsKitchen, WantsPrivateBathroom
+        // replace ' ' with '\ ' in the strings so they are treated as single command line args
+        $studentID = escapeshellarg($_POST[studentID]);
+        $name = escapeshellarg($_POST[name]);
+        $wantAC = escapeshellarg($_POST[wantAC]);
+        $wantsDining = escapeshellarg($_POST[wantsDining]);
+        $wantsKitchen = escapeshellarg($_POST[wantsKitchen]);
+        $wantsBathroom = escapeshellarg($_POST[wantsBathroom]);
+
+
+        $command = 'java -cp .:mysql-connector-java-5.1.40-bin.jar addStudent ' . $studentID . ' ' . $name . ' ' . $wantAC. ' ' . $wantsDining. ' ' . $wantsKitchen. ' ' . $wantsBathroom;
+
+        // remove dangerous characters from command to protect web server
+        $escaped_command = escapeshellcmd($command);
+        // echo "<p>command: $command <p>"; 
+        // run jdbc_insert_item.exe
+        system($escaped_command);           
+    }
+    ?>
+<br><br>
+<a href="https://csce.uark.edu/~snorden/project_java/main.php">Back to Main Page</a>
+
+</html>
+</div>
+
+
