@@ -1,0 +1,549 @@
+Script started on 2025-04-04 17:20:55-0500
+groups: cannot find name for group ID 762800513
+]0;snorden@turing: ~/dbHomework/hw4v2/hw4v2[01;32msnorden@turing[00m:[01;34m~/dbHomework/hw4v2/hw4v2[00m$ exit./compileandrunjava.sh 
+
+#echo "Creating and filling tables from HW3 solution..."
+#./create.sh
+#./insert.sh
+
+echo "Compiling..."
+Compiling...
+javac *.java
+
+echo "Running..."
+Running...
+java -cp .:mysql-connector-java-5.1.40-bin.jar database
+jdbc:mysql://localhost/snorden?useSSL=false
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+1
+What bookstore would you like to search?
+Barnes and Noble
+Which city is the bookstore located in?
+Kansas City
+Finding all copies from Barnes and Noble located in Kansas City...
+---------------------------------
+Query: 
+SELECT bookName, price FROM Copy NATURAL JOIN Bookstore NATURAL JOIN Book WHERE bookstoreName = 'Barnes and Noble' AND city = 'Kansas City';
+
+Result: 
+bookName,  price
+The Return of The King,  25.00
+Godel, Escher, Bach,  35.00
+Watchmen,  18.75
+To Kill a Mockingbird,  12.00
+Unbroken,  15.00
+Rows detected
+Query complete
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+1
+What bookstore would you like to search?
+Dickson Street Bookshop
+Which city is the bookstore located in?
+Fayetteville
+Finding all copies from Dickson Street Bookshop located in Fayetteville...
+---------------------------------
+Query: 
+SELECT bookName, price FROM Copy NATURAL JOIN Bookstore NATURAL JOIN Book WHERE bookstoreName = 'Dickson Street Bookshop' AND city = 'Fayetteville';
+
+Result: 
+bookName,  price
+The Grapes of Wrath,  10.00
+The Return of The King,  15.00
+Life of Pi,  8.25
+The Brothers Karamazov,  21.00
+Rows detected
+Query complete
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+1
+What bookstore would you like to search?
+Pearls Books
+Which city is the bookstore located in?
+Fayetteville
+Finding all copies from Pearls Books located in Fayetteville...
+---------------------------------
+Query: 
+SELECT bookName, price FROM Copy NATURAL JOIN Bookstore NATURAL JOIN Book WHERE bookstoreName = 'Pearls Books' AND city = 'Fayetteville';
+
+Result: 
+bookName,  price
+To Kill a Mockingbird,  15.00
+Brave New World,  12.00
+The Hiding Place,  10.00
+Rows detected
+Query complete
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+1
+What bookstore would you like to search?
+Barnes and Noble4 
+Which city is the bookstore located in?
+Fayetteville
+Finding all copies from Barnes and Noble located in Fayetteville...
+---------------------------------
+Query: 
+SELECT bookName, price FROM Copy NATURAL JOIN Bookstore NATURAL JOIN Book WHERE bookstoreName = 'Barnes and Noble' AND city = 'Fayetteville';
+
+Result: 
+No rows detected
+Bookstore at location not found
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+2
+What book would you like to purchase?
+Life of Pi
+---------------------------------
+Query: 
+SELECT bookName, copyID, bookstoreName, city, price FROM Copy NATURAL JOIN Bookstore NATURAL JOIN Book WHERE bookName = 'Life of Pi';
+
+Result: 
+bookName,  copyID,  bookstoreName,  city,  price
+Life of Pi,  7,  Dickson Street Bookshop,  Fayetteville,  8.25
+Rows detected
+Query complete
+Which copyID would you like to order?
+7
+This book has already been purchased
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+2
+What book would you like to purchase?
+The Return of The King
+---------------------------------
+Query: 
+SELECT bookName, copyID, bookstoreName, city, price FROM Copy NATURAL JOIN Bookstore NATURAL JOIN Book WHERE bookName = 'The Return of The King';
+
+Result: 
+bookName,  copyID,  bookstoreName,  city,  price
+The Return of The King,  0,  Barnes and Noble,  Kansas City,  25.00
+The Return of The King,  6,  Dickson Street Bookshop,  Fayetteville,  15.00
+Rows detected
+Query complete
+Which copyID would you like to order?
+0
+That Copy is not available
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+2
+What book would you like to purchase?
+Brae ve New World
+---------------------------------
+Query: 
+SELECT bookName, copyID, bookstoreName, city, price FROM Copy NATURAL JOIN Bookstore NATURAL JOIN Book WHERE bookName = 'Brave New World';
+
+Result: 
+bookName,  copyID,  bookstoreName,  city,  price
+Brave New World,  10,  Pearls Books,  Fayetteville,  12.00
+Rows detected
+Query complete
+Which copyID would you like to order?
+3
+That Copy is not available
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+2
+What book would you like to purchase?
+Somewhere Beyond the Sea
+---------------------------------
+Query: 
+SELECT bookName, copyID, bookstoreName, city, price FROM Copy NATURAL JOIN Bookstore NATURAL JOIN Book WHERE bookName = 'Somewhere Beyond the Sea';
+
+Result: 
+No rows detected
+This book is not available
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+3
+Case 3
+What bookstore would you like to search?
+Barnes and Noble
+Which city is the bookstore located in?
+Kansas City
+Pulling all purchases from Barnes and Noble located in Kansas City...
+---------------------------------
+Query: 
+SELECT Purchase.* FROM Copy NATURAL JOIN Purchase NATURAL JOIN Bookstore WHERE bookstoreName = 'Barnes and Noble' AND city = 'Kansas City';
+
+Result: 
+purchaseID,  copyID,  date,  time
+5,  1,  2025-02-03,  21:30:00
+3,  4,  2025-01-29,  18:00:00
+Rows detected
+Query complete
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+3
+Case 3
+What bookstore would you like to search?
+Dickson Street B Bookshop
+Which city is the bookstore located in?
+Fayetteville
+Pulling all purchases from Dickson Street Bookshop located in Fayetteville...
+---------------------------------
+Query: 
+SELECT Purchase.* FROM Copy NATURAL JOIN Purchase NATURAL JOIN Bookstore WHERE bookstoreName = 'Dickson Street Bookshop' AND city = 'Fayetteville';
+
+Result: 
+purchaseID,  copyID,  date,  time
+4,  5,  2025-02-01,  12:18:00
+0,  6,  2025-01-15,  10:32:00
+7,  7,  2025-02-14,  23:00:00
+1,  8,  2025-01-18,  08:45:00
+Rows detected
+Query complete
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+3
+Case 3
+What bookstore would you like to search?
+Pearls Books
+Which city is the bookstore located in?
+Fayetteville
+Pulling all purchases from Pearls Books located in Fayetteville...
+---------------------------------
+Query: 
+SELECT Purchase.* FROM Copy NATURAL JOIN Purchase NATURAL JOIN Bookstore WHERE bookstoreName = 'Pearls Books' AND city = 'Fayetteville';
+
+Result: 
+purchaseID,  copyID,  date,  time
+8,  9,  2025-02-21,  20:05:00
+6,  10,  2025-02-09,  16:18:00
+2,  11,  2025-01-04,  14:37:00
+Rows detected
+Query complete
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+3
+Case 3
+What bookstore would you like to search?
+Barnes and Noble
+Which city is the bookstore located in?
+New York city
+Pulling all purchases from Barnes and Noble located in New York city...
+---------------------------------
+Query: 
+SELECT Purchase.* FROM Copy NATURAL JOIN Purchase NATURAL JOIN Bookstore WHERE bookstoreName = 'Barnes and Noble' AND city = 'New York city';
+
+Result: 
+No rows detected
+Bookstore at location not found
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+4
+Case 4
+---------------------------------
+Query: 
+SELECT * FROM Purchase;
+
+Result: 
+purchaseID,  copyID,  date,  time
+0,  6,  2025-01-15,  10:32:00
+1,  8,  2025-01-18,  08:45:00
+2,  11,  2025-01-04,  14:37:00
+3,  4,  2025-01-29,  18:00:00
+4,  5,  2025-02-01,  12:18:00
+5,  1,  2025-02-03,  21:30:00
+6,  10,  2025-02-09,  16:18:00
+7,  7,  2025-02-14,  23:00:00
+8,  9,  2025-02-21,  20:05:00
+Rows detected
+What purchase would you like to cancel?
+0
+Purchase canceled successfully.
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+4
+Case 4
+---------------------------------
+Query: 
+SELECT * FROM Purchase;
+
+Result: 
+purchaseID,  copyID,  date,  time
+1,  8,  2025-01-18,  08:45:00
+2,  11,  2025-01-04,  14:37:00
+3,  4,  2025-01-29,  18:00:00
+4,  5,  2025-02-01,  12:18:00
+5,  1,  2025-02-03,  21:30:00
+6,  10,  2025-02-09,  16:18:00
+7,  7,  2025-02-14,  23:00:00
+8,  9,  2025-02-21,  20:05:00
+Rows detected
+What purchase would you like to cancel?
+5
+Purchase canceled successfully.
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+4
+Case 4
+---------------------------------
+Query: 
+SELECT * FROM Purchase;
+
+Result: 
+purchaseID,  copyID,  date,  time
+1,  8,  2025-01-18,  08:45:00
+2,  11,  2025-01-04,  14:37:00
+3,  4,  2025-01-29,  18:00:00
+4,  5,  2025-02-01,  12:18:00
+6,  10,  2025-02-09,  16:18:00
+7,  7,  2025-02-14,  23:00:00
+8,  9,  2025-02-21,  20:05:00
+Rows detected
+What purchase would you like to cancel?
+7
+Purchase canceled successfully.
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+4
+Case 4
+---------------------------------
+Query: 
+SELECT * FROM Purchase;
+
+Result: 
+purchaseID,  copyID,  date,  time
+1,  8,  2025-01-18,  08:45:00
+2,  11,  2025-01-04,  14:37:00
+3,  4,  2025-01-29,  18:00:00
+4,  5,  2025-02-01,  12:18:00
+6,  10,  2025-02-09,  16:18:00
+8,  9,  2025-02-21,  20:05:00
+Rows detected
+What purchase would you like to cancel?
+12
+No purchase with that ID was found.
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+5
+Case 5
+What bookstore would you like to search?
+Barnes and Noble
+Which city is the bookstore located in?
+Kansas City
+Store found: ID = 0
+What is the name of the book?
+Classical Mythology
+What is the name of the author?
+Mark P. O. Morford
+What is the date of publication?
+03,20  10,2002
+What type of book is it?
+non
+What is the price of the book?
+12.24
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+5
+Case 5
+What bookstore would you like to search?
+Dickson Street Bookshop
+Which city is the bookstore located in?
+Fayetteville
+Store found: ID = 5
+What is the name of the book?
+The Return of The King
+What is the name of the author?
+J.R.R. Tolkien
+What is the date of publication?
+10,20,1932
+What type of book is it?
+fic
+What is the price of the book?
+10.99
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+5
+Case 5
+What bookstore would you like to search?
+Pearls Books
+Which city is the bookstore located in?
+Dallas
+No matching bookstore found.
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+5
+Case 5
+What bookstore would you like to search?
+Barnes and Noble
+Which city is the bookstore located in?
+Kansas City
+Store found: ID = 0
+What is the name of the book?
+Clara Callan
+What is the name of the author?
+Richard Bruce Wright
+What is the date of publication?
+10,20,2001
+What type of book is it?
+non
+What is the price of the book?
+25.99
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+7
+---------------------------------
+Query: 
+SELECT * FROM Book;
+
+Result: 
+bookID,  bookName,  author,  publicationDate,  type
+4,  Life of Pi,  Yann Martel,  2001-09-11,  fic
+9,  Brave New World,  Aldous Huxley,  1932-02-04,  fic
+10,  To Kill a Mockingbird,  Harper Lee,  1960-07-11,  fic
+13,  Godel, Escher, Bach,  Douglas Hofstadter,  1979-01-01,  non
+15,  The Hiding Place,  Corrie Ten Boom,  1971-01-01,  non
+16,  The Grapes of Wrath,  John Steinbeck,  1939-04-14,  fic
+21,  The Brothers Karamazov,  Fyodor Dostoevsky,  1880-11-01,  fic
+29,  Unbroken,  Laura Hillenbrand,  2010-11-16,  non
+37,  Watchmen,  Alan Moore,  1986-05-13,  fic
+42,  The Return of The King,  J. R. R. Tolkien,  1955-10-20,  fic
+43,  Classical Mythology,  Mark P. O. Morford,  2002-03-10,  non
+44,  The Return of The King,  J.R.R. Tolkien,  1932-10-20,  fic
+45,  Clara Callan,  Richard Bruce Wright,  2001-10-20,  non
+Rows detected
+---------------------------------
+Query: 
+SELECT * FROM Bookstore;
+
+Result: 
+bookstoreID,  bookstoreName,  state,  city
+0,  Barnes and Noble,  MO,  Kansas City
+5,  Dickson Street Bookshop,  AR,  Fayetteville
+11,  Pearls Books,  AR,  Fayetteville
+Rows detected
+---------------------------------
+Query: 
+SELECT * FROM Copy;
+
+Result: 
+copyID,  bookstoreID,  bookID,  price
+0,  0,  42,  25.00
+1,  0,  13,  35.00
+2,  0,  37,  18.75
+3,  0,  10,  12.00
+4,  0,  29,  15.00
+5,  5,  16,  10.00
+6,  5,  42,  15.00
+7,  5,  4,  8.25
+8,  5,  21,  21.00
+9,  11,  10,  15.00
+10,  11,  9,  12.00
+11,  11,  15,  10.00
+12,  0,  null,  25.99
+13,  0,  43,  12.24
+14,  5,  44,  10.99
+15,  0,  45,  25.99
+Rows detected
+---------------------------------
+Query: 
+SELECT * FROM Purchase;
+
+Result: 
+purchaseID,  copyID,  date,  time
+1,  8,  2025-01-18,  08:45:00
+2,  11,  2025-01-04,  14:37:00
+3,  4,  2025-01-29,  18:00:00
+4,  5,  2025-02-01,  12:18:00
+6,  10,  2025-02-09,  16:18:00
+8,  9,  2025-02-21,  20:05:00
+Rows detected
+1) Find all available copies at a given bookstore
+2) Purchase an available copy from a particular bookstore
+3) List all purchases for a particular bookstore
+4) Cancel a purchase
+5) Add a new book for a bookstore
+6) Quit
+6
+Exiting...
+rm *.class
+]0;snorden@turing: ~/dbHomework/hw4v2/hw4v2[01;32msnorden@turing[00m:[01;34m~/dbHomework/hw4v2/hw4v2[00m$ exit
+exit
+
+Script done on 2025-04-04 17:31:50-0500
